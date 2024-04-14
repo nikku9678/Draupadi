@@ -1,11 +1,16 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import "./LoginRegister.css";
+import { Base_url } from "../../config";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../redux/store";
+import axios from 'axios'
 const LoginPage = () => {
+  const navigate=useNavigate();
+  const dispatch =useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    phoneNumber: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,9 +21,30 @@ const LoginPage = () => {
     // console.log(formData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    try {
+      const  {data}  = await axios.post(
+        `${Base_url}/user/login`,
+        formData, // Just pass formData directly
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(data);
+      if (data.success) {
+        localStorage.setItem("userId", data?.user._id);
+        dispatch(authActions.login());
+        alert("User login Successfully");
+        navigate("/");
+      }
+    } catch (error) {
+       
+      console.log(error);
+    }
     console.log(formData);
   };
   return (
