@@ -1,0 +1,112 @@
+
+.login-container{
+    
+    width: 100%;
+    /* height: 100vh; */
+    background:linear-gradient(to right bottom , #ebf4f5 ,#b5c6e0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 120px;
+}
+.form-Box{
+    margin-top: 30px;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px 20px;
+    margin-inline: 20px;
+}
+.form-Box select{
+    width: 100%;
+    padding: 5px 16px;
+    font-size: .9rem;
+    margin: 8px 0;
+    border-radius: 6px;
+}
+.form-Box header{
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid black; */
+}
+.form-Box header h1{
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    /* border: 2px solid black; */
+}
+
+.form-Box form{
+    margin-block: 30px;
+}
+.form-Box input{
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: #a3a3a331;
+    font-size: .9rem;
+    margin: 5px 0;
+}
+/* input[type="text"]{
+    display: none;
+} */
+
+
+
+
+input[type="button"]{
+    margin-top: 20px;
+    background-color: #5851e3;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+input[type="button"]:hover{
+    background-color: #10449a;
+}
+.links{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+.links img{
+    max-height: 40px;
+    margin-inline: 20px;
+}
+.signup{
+    text-align: center;
+    margin-block: 0;
+    padding: 5px 0;
+
+}
+/* .signup a{
+    font-size: 16px;
+    font-weight: 700;
+    color: #5851e3;
+    text-decoration: none;
+} */
+.signup a:hover{
+    color: #10449a;
+    text-decoration: underline 2px;
+    text-underline-offset: 3.5px;
+}
+.role{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width:767px){
+    .form-box{
+        width: 80%;
+    }
+}
