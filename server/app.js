@@ -5,8 +5,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import { errorMiddleware } from "./middlewares/error.js";
 import userRoutes from "./routes/userRoutes.js";
-import speakerRoutes from "./routes/userRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
+import speakerRoutes from "./routes/speakerRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 const app =express(); 
 
 dotenv.config();
@@ -19,13 +19,15 @@ app.use(
       credentials: true,
     })
   );
+
+  // app.use(cors())
   app.use(cookieParser());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/user", userRoutes);
-// app.use("/api/v1/speaker", speakerRoutes);
-// app.use("/api/v1/user", productRoutes);
+app.use("/api/v1/speaker", speakerRoutes);
+app.use("/api/v1/admin", adminRoutes);
 
 
 const PORT = 8080 || process.env.PORT

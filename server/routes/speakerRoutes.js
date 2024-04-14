@@ -1,15 +1,12 @@
 import express from 'express';
 
-// import { } from '../controllers/userController.js';
+import { updateSpeakerInfo,getVerifiedSpeaker} from '../controllers/speakerController.js';
 import { isAuthenticate } from '../middlewares/auth.js';
 
 const router = express.Router();
 
-// router.post("/login",login);
-// router.get("/logout",logout);
-// router.post("/register",register);
-// router.get("/profile",isAuthenticate,getUserProfile);
-// router.get("/admin",getAdminProfile);
+router.put("/update/:id",isAuthenticate,updateSpeakerInfo);
+router.get("/verified-speaker",getVerifiedSpeaker);
 
 
 export default router;

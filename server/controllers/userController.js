@@ -63,33 +63,7 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
 });
 
 
-// get All verified speaker speaker
-export const getAllSpeaker = catchAsyncErrors(async (req, res, next) => {
-  const user = await User.find({role:"Speaker",verified:true})
-  console.log("hello2")
-  res.status(200).json({
-    success: true,
-    user,
-  });
-});
 
-
-
-export const getAdminProfile = catchAsyncErrors(async (req, res, next) => {
-  console.log("admin")
-  const user = await User.find({});
-
-  if(user.isAdmin === true){
-      return console.log("kk")
-  }
-  
-  console.log("hello")
-  res.status(200).json({
-    success: false,
-    length: user.length,
-    user,
-  });
-});
 
 
 // Logout function for frontend patient
@@ -105,38 +79,7 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
       message: "User Logged Out Successfully.",
     });
 });
-export const updateSpeakerInfo = catchAsyncErrors(async (req, res, next) => {
-  const id = req.params.id;
-
-  const { qualification,experties,bio ,country,city,address,verified ,experience} =
-    req.body;
-  const speaker = await User.findByIdAndUpdate(id, { ...req.body }, { new: true });
-  if (!speaker) return next(new ErrorHandler("speaker not found", 404));
-  await speaker.save();
-
-  res.status(200).json({
-    success: true,
-    message: "speaker Updated!",
-  });
-
-  next(error);
-});
 
 
 
-export const updateProduct = catchAsyncErrors(async (req, res, next) => {
-  const id = req.params.id;
 
-  const { productName, description, price, category, collegeName, image, location } =
-    req.body;
-  const product = await Product.findByIdAndUpdate(id, { ...req.body }, { new: true });
-  if (!product) return next(new ErrorHandler("Product not found", 404));
-  await product.save();
-
-  res.status(200).json({
-    success: true,
-    message: "product Updated!",
-  });
-
-  next(error);
-});

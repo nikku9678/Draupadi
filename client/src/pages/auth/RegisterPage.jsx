@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { Link ,useNavigate} from "react-router-dom";
+import "./LoginRegister.css";
+import { Base_url } from "../../config";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../redux/store";
+import axios from 'axios'
 const RegisterPage = () => {
+  const navigate=useNavigate();
+  const dispatch =useDispatch();
   const [selectedOption, setSelectedOption] = useState("");
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     
     email: "",
     password:"",
-    phoneNumber: "",
-    gender: "",
-    qualifications: "",
-    expertise: "",
-    experience: "",
-    aboutYourself: "",
-    organization: "",
-    designation: "",
+    phone: "",
     role: "",
   });
   const handleChange = (e) => {
@@ -26,9 +26,30 @@ const RegisterPage = () => {
     // console.log(formData)
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    
+    try {
+      const  {data}  = await axios.post(
+        `${Base_url}/user/register`,
+        formData, // Just pass formData directly
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      console.log(data);
+      if (data.success) {
+        localStorage.setItem("userId", data?.user._id);
+        dispatch(authActions.login());
+        alert("User login Successfully");
+        navigate("/");
+      }
+    } catch (error) {
+       
+      console.log(error);
+    }
     console.log(formData);
   };
   const handleOptionChange = (e) => {
@@ -38,7 +59,7 @@ const RegisterPage = () => {
       ...formData,
       [name]: value,
     });
-
+    console.log(selectedOption);
   };
   return (
     <div className="login-container">
@@ -51,16 +72,16 @@ const RegisterPage = () => {
         {/* <label >Register As :</label><br/> */}
         <select id="options" name="role" value={selectedOption}  onChange={handleOptionChange}>
           <option value="">Select Role</option>
-          <option value="Expert">Expert</option>
-          <option value="Event Organizers">Event Organizers</option>
-          <option value="Audience">Audience</option>
+          <option value="user">user</option>
+          <option value="Organization">Organization</option>
+          <option value="Speaker">Speaker</option>
         </select>
-          <input type="text" name="fullName"placeholder="Full Name" onChange={handleChange}/>
+          <input type="text" name="name" placeholder="Full Name" onChange={handleChange}/>
           
           <input type="email" name="email" placeholder="Enter email" onChange={handleChange}/>
           <input
             type="tel"
-            name="phoneNumber"
+            name="phone"
             placeholder="Enter phone number"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           onChange={handleChange}/>

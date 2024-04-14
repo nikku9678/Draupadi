@@ -5,6 +5,8 @@ import Navbar from './components/navbar/Navbar'
 import Home from './pages/home/Home';
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
+import AdminPage from "./pages/admin/AdminPage";
+import SpeakerList from "./pages/speakers/SpeakerList";
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
           <Route path="/" element={<Home />} /> 
           <Route path="/login" element={<LoginPage/>} /> 
           <Route path="/register" element={<RegisterPage/>}/>
+          <Route path="/all-speaker" element={<SpeakerList/>}/>
+          <Route path="/admin" element={<AdminPage/>}/>
       </Routes>
     </BrowserRouter>
   )
