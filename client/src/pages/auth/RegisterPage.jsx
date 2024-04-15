@@ -4,6 +4,7 @@ import "./LoginRegister.css";
 import { Base_url } from "../../config";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../redux/store";
+import toast from "react-hot-toast";
 import axios from 'axios'
 const RegisterPage = () => {
   const navigate=useNavigate();
@@ -31,7 +32,7 @@ const RegisterPage = () => {
     try {
       const  {data}  = await axios.post(
         `${Base_url}/user/register`,
-        formData, // Just pass formData directly
+        formData, 
         {
           headers: {
             "Content-Type": "application/json",
@@ -43,8 +44,8 @@ const RegisterPage = () => {
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());
-        alert("User login Successfully");
-        navigate("/");
+        toast.success("User register Successfully");
+        navigate("/login");
       }
     } catch (error) {
        

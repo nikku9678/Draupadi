@@ -1,9 +1,11 @@
 import React from 'react'
+import Navbar from '../../components/navbar/Navbar'
 
 const AdminPage = () => {
   return (
     <div>
-      sdv
+    
+      Admin page
     </div>
   )
 }
