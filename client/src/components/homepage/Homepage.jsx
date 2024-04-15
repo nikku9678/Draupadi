@@ -1,5 +1,5 @@
 import React from "react";
-import "./homepage.css";
+import "./Homepage.css";
 const Homepage = () => {
   return (
     <>
@@ -7,12 +7,12 @@ const Homepage = () => {
     {/* session 1 */}
       <div className="home-session">
         <div className="home-session-img">
-          <img className="" src="images/h1.jpg" alt="Speaker" />
+          <img className="" src="images/homepage/1.webp" alt="Speaker" />
         </div>
         <div className="home-session-text">
           <h2 className="home-session-title">Take the Stage</h2>
           <p className="home-session-p">
-            If you’re a speaker, panellist, thought leader or knowledge expert
+            If you're a speaker, panellist, thought leader or knowledge expert
             in your field, sign up to help event organisers find and invite you
             to leadership-level panels and conferences.
           </p>
@@ -32,14 +32,14 @@ const Homepage = () => {
           <button className="home-session-button">Recommend now</button>
         </div>
         <div className="home-session-img">
-          <img className="" src="images/h2.jpg" alt="Speaker" />
+          <img className="" src="images/homepage/2.webp" alt="Speaker" />
         </div>
       </div>
 
       {/* session 3 */}
       <div className="home-session">
         <div className="home-session-img">
-          <img className="" src="images/h3.jpg" alt="Speaker" />
+          <img className="" src="images/homepage/3.webp" alt="Speaker" />
         </div>
         <div className="home-session-text">
           <h2 className="home-session-title">Take the Stage</h2>
@@ -55,7 +55,7 @@ const Homepage = () => {
       {/* session 4 */}
       <div className="home-mission">
           <h2 className="home-session-title">Our Mission</h2>
-          <p className="home-session-p">
+          <p className="home-mission-p">
           2022 may be a better year for women and we may be seeing more action and revolution compared to any era before, but there continue to be areas that were left behind in this fight. Active participation of women in leadership-level panels and conferences is one of those areas.
           </p>
           <button className="home-session-button">Read More</button>
