@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< Updated upstream
 import "./Homepage.css";
+=======
+import "./HomePage.css";
+>>>>>>> Stashed changes
 const Homepage = () => {
   return (
     <>

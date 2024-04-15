@@ -4,6 +4,7 @@ import "./LoginRegister.css";
 import { Base_url } from "../../config";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../redux/store";
+import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios'
 const LoginPage = () => {
   const navigate=useNavigate();
@@ -26,7 +27,7 @@ const LoginPage = () => {
     try {
       const  {data}  = await axios.post(
         `${Base_url}/user/login`,
-        formData, // Just pass formData directly
+        formData, 
         {
           headers: {
             "Content-Type": "application/json",
@@ -38,8 +39,17 @@ const LoginPage = () => {
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());
-        alert("User login Successfully");
-        navigate("/");
+        toast.success("User login Successfully");
+
+        if(data.user.role==='user'){
+          navigate('/')
+        }else if(data.user.role==='Speaker'){
+          navigate('/speaker')
+        }else{
+          navigate('/admin')
+
+        }
+
       }
     } catch (error) {
        
