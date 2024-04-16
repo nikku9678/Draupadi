@@ -1,0 +1,140 @@
+.dashboard {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* border: 2px solid black; */
+  gap: 20px;
+}
+.dashboard .user-left ul {
+  /* width: 10%; */
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: white;
+}
+.dashboard .user-left ul li {
+  padding: 10px 30px;
+  border: 2px solid gray;
+}
+.dashboard .user-right {
+  background-color: white;
+  padding: 20px 40px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 10px;
+  border: 2px solid gray;
+}
+.dashboard .user-right .user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* align-items: center; */
+  gap: 15px;
+  border-radius: 10px;
+  /* border: 2px solid green; */
+}
+.info-left {
+  /* border: 2px solid green; */
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 20px 40px;
+  gap: 15px;
+}
+.dashboard .user-right .user-info img {
+  width: 60%;
+}
+.user-basic-info {
+  /* border: 2px solid green; */
+  width: 80%;
+}
+.user-basic-info h2 {
+  text-align: left;
+  padding: 15px 10px;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+
+
+/* USer info edit */
+.user-basic-info .top {
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    /* gap: 15px; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.user-basic-info .top button {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    background-color: slateblue;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.user-basic-info .edit-info div {
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    gap: 15px;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 10px 15px;
+}
+.user-detail{
+  padding: 15px 10px;
+}
+.user-detail li{
+  margin: 8px 10px;
+}
+.user-basic-info div label {
+    font-size: 1.2rem;
+}
+.user-basic-info div input {
+    padding: 10px 15px;
+}
+.user-basic-info .btn button {
+    padding: 10px 30px;
+    font-size: 1.3rem;
+    background-color: #04aa6d;
+    border-radius: 5px;
+    border: none;
+}
