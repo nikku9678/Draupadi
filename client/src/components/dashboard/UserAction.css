@@ -1,0 +1,63 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  width: 60%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* shadow effect */
+}
+
+.popup button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff; /* blue color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: red;
+}
+
+.popup-close button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* green color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.popup-close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.verification select{
+   padding: 10px 5px;
+  
+  font-weight: bold;
+  margin: 10px 0;
+  font-size:medium;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color:beige;
+}
+.verification select :hover{
+        cursor: pointer;
+ }  

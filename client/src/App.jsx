@@ -1,7 +1,7 @@
 // import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import LoginPage from "./pages/auth/LoginPage";
@@ -13,6 +13,7 @@ import EditProfile from "./components/dashboard/EditProfile";
 import Speaker from "./pages/speakers/Speaker";
 import Footer from './components/footer/Footer'
 import Event from './pages/event/Event'
+import UserAction from "./components/dashboard/UserAction";
 const App = () => {
   return (
     <BrowserRouter>
@@ -26,7 +27,10 @@ const App = () => {
         <Route path="/user" element={<User />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/speaker" element={<Speaker />} />
+
         <Route path="/events" element={<Event />} />
+
+        <Route path="/table" element={<UserAction />} />
       </Routes>
       <Footer/>
       <Toaster
