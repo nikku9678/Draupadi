@@ -79,7 +79,7 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 .home-session-5 .home-session-emailbox{
     display: flex;
