@@ -9,6 +9,7 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import AdminPage from "./pages/admin/AdminPage";
 import SpeakerList from "./pages/speakers/SpeakerList";
 import User from "./components/dashboard/User";
+import EditProfile from "./components/dashboard/EditProfile";
 import Speaker from "./pages/speakers/Speaker";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/all-speaker" element={<SpeakerList/>}/>
           <Route path="/admin" element={<AdminPage/>}/>
           <Route path="/user" element={<User/>}/>
+          <Route path="/edit-profile" element={<EditProfile/>}/>
           <Route path="/speaker" element={<Speaker/>}/>
       </Routes>
       <Toaster

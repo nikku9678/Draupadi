@@ -52,29 +52,7 @@ label.logo img{
     display: none;
   }
 
-  .dashboard{
-    z-index: 1000;
-    position: relative;
-    float: right;
-    right: 10px;
-    top: 0;
-    padding: 10px 20px;
-    /* display: block; */
-    /* height: 50px; */
-    border: 2px solid red;
-  }
-
-  .dashboard ul{
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 2px solid black;
-  }
-  .dashboard ul li{
-    padding: 0;
-    line-height: 40px;
-    margin: 0;
-  }
+ 
   @media (max-width: 952px){
     label.logo{
       font-size: 30px;

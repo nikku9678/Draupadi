@@ -61,16 +61,19 @@ const Navbar = () => {
             <Link to="/dias">Why the Dias?</Link>
           </li>
           <li>
+            <Link to="/events">Events</Link>
+          </li>
+          <li>
             <Link to="/find-expert">Find an Expert</Link>
           </li>
           {isLogin ? (
             <>
               <li>
-                <i class="fa-solid fa-user"  style={{color:'blue',fontSize:'20px'}}></i>
+               <Link to="/user"> <i className="fa-solid fa-user"  style={{color:'blue',fontSize:'20px'}}></i></Link>
               </li>
               <li>
               <Link to="/" onClick={handleLogout}>
-              <i class="fa-solid fa-right-from-bracket" style={{color:'red',fontSize:'20px'}}></i>
+              <i className="fa-solid fa-right-from-bracket" style={{color:'red',fontSize:'20px'}}></i>
                 </Link>
               </li>
             </>

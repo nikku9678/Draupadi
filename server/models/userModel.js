@@ -28,32 +28,36 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: Number,
-    select: false,
+    // select: false,
   },
   experties: { // field
     type: String,
     // required: true,
-    select: false,
+    // select: false,
   },
   bio: {
     // required: true,
     type: String,
-    select: false,
+    // select: false,
   },
   qualification: {
     // required: true,
     type: String,
-    select: false,
+    // select: false,
   },
   phone: {
     type: Number,
-    select: false,
+    // select: false,
   },
   country: {
     type: String,
     // required: [true, "Please provide a country name."],
   },
   city: {
+    type: String,
+    // required: [true, "Please provide a city name."],
+  },
+  industry: {
     type: String,
     // required: [true, "Please provide a city name."],
   },

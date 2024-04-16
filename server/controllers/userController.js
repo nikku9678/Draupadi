@@ -55,7 +55,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 // get user profile
 export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
   const user = req.user;
-  console.log("hello2")
+  console.log(user)
   res.status(200).json({
     success: true,
     user,

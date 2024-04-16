@@ -26,8 +26,8 @@ app.use(
   app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/user", userRoutes);
-app.use("/api/v1/speaker", speakerRoutes);
-app.use("/api/v1/admin", adminRoutes);
+// app.use("/api/v1/speaker", speakerRoutes);
+// app.use("/api/v1/admin", adminRoutes);
 
 
 const PORT = 8080 || process.env.PORT
