@@ -1,19 +1,20 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-const helpSchema = new mongoose.Schema({
+const recomendedSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  phone: {
+  speaker_name: {
     type: String,
   },
-  message: { 
+  speaker_id: {
+    type: String,
+  },
+  speaker_email: {
+    type: String,
+  },
+  speaker_phone: { 
     type: String,
   },
   
@@ -24,4 +25,4 @@ const helpSchema = new mongoose.Schema({
 });
 
 
-export const Help = mongoose.model("Help", helpSchema);
+export const RecomendedSpk = mongoose.model("RecomendedSpk", recomendedSchema);

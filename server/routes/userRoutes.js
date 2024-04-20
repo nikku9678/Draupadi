@@ -6,6 +6,7 @@ import { getVerifiedSpeaker, updateSpeakerInfo,speakerPostEvents ,getSpeakerPost
 
 const router = express.Router();
 
+
 // user routes
 router.post("/login",login);
 router.get("/logout",logout);
@@ -18,6 +19,7 @@ router.put("/update/:id",isAuthenticate,updateSpeakerInfo);
 router.post("/post-event",isAuthenticate,speakerPostEvents);
 router.get("/speaker-post",isAuthenticate,getSpeakerPost);
 router.get("/verified-speaker",getVerifiedSpeaker);
+
 
 
 
