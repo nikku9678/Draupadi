@@ -25,6 +25,15 @@ export const getAllUser = catchAsyncErrors(async (req, res, next) => {
     });
   });
   
+export const getVerifiedSpeaker = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.find({role:"Speaker"})
+    console.log("hello2")
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  });
+  
   
   
   export const getAdminProfile = catchAsyncErrors(async (req, res, next) => {

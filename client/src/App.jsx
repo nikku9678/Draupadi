@@ -1,7 +1,7 @@
 // import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import LoginPage from "./pages/auth/LoginPage";
@@ -11,8 +11,12 @@ import SpeakerList from "./pages/speakers/SpeakerList";
 import User from "./components/dashboard/User";
 import EditProfile from "./components/dashboard/EditProfile";
 import Speaker from "./pages/speakers/Speaker";
-import Footer from './components/footer/Footer'
-import Event from './pages/event/Event'
+import Footer from "./components/footer/Footer";
+import Event from "./pages/event/Event";
+import Admin from "./components/dashboard/Admin";
+import Organization from "./components/dashboard/Organization";
+import SpeakerRegister from "./pages/auth/SpeakerRegister";
+import OrganizerRegister from "./pages/auth/OrganizerRegister";
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,15 +24,19 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/speaker-register" element={<SpeakerRegister />} />
+        <Route path="/org-register" element={<OrganizerRegister />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/all-speaker" element={<SpeakerList />} />
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/user" element={<User />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/speaker" element={<Speaker />} />
         <Route path="/events" element={<Event />} />
+        <Route path="/find-speaker" element={<SpeakerList />} />
+        <Route path="/organization" element={<Organization />} />
       </Routes>
-      <Footer/>
+      <Footer />
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -36,7 +44,6 @@ const App = () => {
         containerClassName=""
         containerStyle={{}}
         toastOptions={{
-          // Define default options
           className: "",
           duration: 5000,
           style: {

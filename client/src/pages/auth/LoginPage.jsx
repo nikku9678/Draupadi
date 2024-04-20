@@ -4,7 +4,7 @@ import "./LoginRegister.css";
 import { Base_url } from "../../config";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../redux/store";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import axios from 'axios'
 const LoginPage = () => {
   const navigate=useNavigate();
@@ -25,9 +25,9 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const  {data}  = await axios.post(
+      const { data } = await axios.post(
         `${Base_url}/user/login`,
-        formData, 
+        formData,
         {
           headers: {
             "Content-Type": "application/json",
@@ -37,26 +37,33 @@ const LoginPage = () => {
       );
       console.log(data);
       if (data.success) {
-        localStorage.setItem("userId", data?.user._id);
-        dispatch(authActions.login());
+        localStorage.setItem("user", JSON.stringify(data));
+        dispatch(authActions.login(data));
         toast.success("User login Successfully");
-
-        if(data.user.role==='user'){
-          navigate('/')
-        }else if(data.user.role==='Speaker'){
-          navigate('/speaker')
-        }else{
-          navigate('/admin')
-
-        }
-
+        navigate("/");
+      } else {
+        toast.error("Login failed. Please check your credentials.");
       }
     } catch (error) {
-       
-      console.log(error);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        toast.error("Login failed. Please try again later.");
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log(error.request);
+        toast.error("No response from the server. Please try again later.");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log("Error", error.message);
+        toast.error("An unexpected error occurred. Please try again later.");
+      }
     }
-    console.log(formData);
   };
+  
   return (
     <div className="login-container">
       <div className="form-Box">
@@ -75,6 +82,12 @@ const LoginPage = () => {
           </div>
           <p className="signup">
             Not a member?<Link to="/register"> Sign Up</Link>{" "}
+          </p>
+          <p className="signup">
+            Register as Speaker?<Link to="/speaker-register"> Sign Up</Link>{" "}
+          </p>
+          <p className="signup">
+            Register as Organizer?<Link to="/org-register"> Sign Up</Link>{" "}
           </p>
         </form>
       </div>

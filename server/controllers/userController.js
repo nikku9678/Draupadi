@@ -62,7 +62,14 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-
+export const getVerifiedSpeaker = catchAsyncErrors(async (req, res, next) => {
+  const user = await User.find({role:"Speaker",verified:true})
+  console.log("verified speaker")
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
 
 
 
