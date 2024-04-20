@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdminInfo = () => {
+const Speaker = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const AdminInfo = () => {
   )
 }
 
-export default AdminInfo
+export default Speaker

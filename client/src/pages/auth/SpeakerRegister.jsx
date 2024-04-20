@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../../redux/store";
 import toast from "react-hot-toast";
 import axios from 'axios'
-const RegisterPage = () => {
+const SpeakerRegister= () => {
   const navigate=useNavigate();
   const dispatch =useDispatch();
   const [selectedOption, setSelectedOption] = useState("");
@@ -16,7 +16,7 @@ const RegisterPage = () => {
     email: "",
     password:"",
     phone: "",
-    role: "user",
+    role: "Speaker",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,8 +42,6 @@ const RegisterPage = () => {
       );
       console.log(data);
       if (data.success) {
-        localStorage.setItem("userId", data?.user._id);
-        dispatch(authActions.login());
         toast.success("User register Successfully");
         navigate("/login");
       }
@@ -53,15 +51,7 @@ const RegisterPage = () => {
     }
     console.log(formData);
   };
-  const handleOptionChange = (e) => {
-    setSelectedOption(e.target.value);
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-    console.log(selectedOption);
-  };
+
   return (
     <div className="login-container">
       <div className="form-Box">
@@ -69,7 +59,7 @@ const RegisterPage = () => {
           <h1 id="title">Register</h1>
         </header>
         <form>
-        
+    
           <input type="text" name="name" placeholder="Full Name" onChange={handleChange}/>
           
           <input type="email" name="email" placeholder="Enter email" onChange={handleChange}/>
@@ -98,4 +88,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default SpeakerRegister;

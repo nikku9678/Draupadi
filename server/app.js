@@ -7,6 +7,7 @@ import { errorMiddleware } from "./middlewares/error.js";
 import userRoutes from "./routes/userRoutes.js";
 import speakerRoutes from "./routes/speakerRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import organizerRoutes from "./routes/organizerRoutes.js";
 const app =express(); 
 
 dotenv.config();
@@ -27,7 +28,8 @@ app.use(
 
 app.use("/api/v1/user", userRoutes);
 // app.use("/api/v1/speaker", speakerRoutes);
-// app.use("/api/v1/admin", adminRoutes);
+app.use("/api/v1/admin", adminRoutes);
+app.use("/api/v1/organizer", organizerRoutes);
 
 
 const PORT = 8080 || process.env.PORT

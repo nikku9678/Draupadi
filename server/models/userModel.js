@@ -28,52 +28,48 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: Number,
-    // select: false,
   },
-  experties: { // field
+  experties: { 
     type: String,
-    // required: true,
-    // select: false,
   },
   bio: {
-    // required: true,
     type: String,
-    // select: false,
   },
   qualification: {
-    // required: true,
     type: String,
-    // select: false,
-  },
-  phone: {
-    type: Number,
-    // select: false,
   },
   country: {
     type: String,
-    // required: [true, "Please provide a country name."],
   },
   city: {
     type: String,
-    // required: [true, "Please provide a city name."],
   },
   industry: {
     type: String,
-    // required: [true, "Please provide a city name."],
   },
   address: {
-    type: String,
-    // required: [true, "Please provide location."],
-    // minLength: [20, "Location must contian at least 20 characters!"],
+    type: String, 
   },
   verified: {
     type: Boolean,
     default: false,
   },
   experience: {
-    // required:true,
     type: Number,
-    default: false,
+  },
+  review: {
+    type: String,
+  },
+  rating: {
+    type: Number,
+  },
+  notification: {
+    type: Array,
+    default: [],
+  },
+  seennotification: {
+    type: Array,
+    default: [],
   },
   createdAt: {
     type: Date,
