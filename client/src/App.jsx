@@ -17,6 +17,15 @@ import Admin from "./components/dashboard/Admin";
 import Organization from "./components/dashboard/Organization";
 import SpeakerRegister from "./pages/auth/SpeakerRegister";
 import OrganizerRegister from "./pages/auth/OrganizerRegister";
+import SpeakerVerification from "./pages/speakers/SpeakerVerification";
+import UserDash from "./pages/admin/UserDash";
+import SpeakerDash from "./pages/admin/SpeakerDash";
+import OrgDash from "./pages/admin/OrgDash";
+import SpeakerInfo from "./pages/speakers/SpeakerInfo";
+import Message from "./pages/admin/Message";
+import RecomendedSpkForm from "./pages/message/RecomendedSpkForm";
+import HelpMessage from "./pages/message/HelpMessage";
+import RecomendedSpk  from "./pages/admin/RecomendedSpk";
 const App = () => {
   return (
     <BrowserRouter>
@@ -35,6 +44,18 @@ const App = () => {
         <Route path="/events" element={<Event />} />
         <Route path="/find-speaker" element={<SpeakerList />} />
         <Route path="/organization" element={<Organization />} />
+
+
+        <Route path="/s-verify" element={<SpeakerVerification />} />
+        <Route path="/ad-user" element={<UserDash />} />
+        <Route path="/ad-speaker" element={<SpeakerDash />} />
+        <Route path="/ad-org" element={<OrgDash />} />
+        <Route path="/help" element={<Message />} />
+        <Route path="/recom" element={<RecomendedSpk />} />
+        <Route path="/speaker/info/:id" element={<SpeakerInfo />} />
+        <Route path="/recomend-speaker" element={<RecomendedSpkForm />} />
+        <Route path="/support" element={<HelpMessage />} />
+
       </Routes>
       <Footer />
       <Toaster

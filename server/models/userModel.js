@@ -63,6 +63,14 @@ const userSchema = new mongoose.Schema({
   rating: {
     type: Number,
   },
+  image: {
+    public_id: {
+      type: String, 
+    },
+    url: {
+      type: String, 
+    },
+  },
   notification: {
     type: Array,
     default: [],

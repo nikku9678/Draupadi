@@ -12,6 +12,8 @@ export const getVerifiedSpeaker = catchAsyncErrors(async (req, res, next) => {
       user,
     });
   });
+
+
 export const getSpeakerPost = catchAsyncErrors(async (req, res, next) => {
     const speaker_post = await SpeakerPost.find({})
     console.log("verified speaker")
@@ -20,6 +22,25 @@ export const getSpeakerPost = catchAsyncErrors(async (req, res, next) => {
       speaker_post,
     });
   });
+
+
+export const getOneSpeaker = catchAsyncErrors(async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const speaker = await User.findById(id);
+    if (!speaker) {
+      return next(new ErrorHandler("Job not found.", 404));
+    }
+    res.status(200).json({
+      success: true,
+      speaker,
+    });
+  } catch (error) {
+    return next(new ErrorHandler(`Invalid ID / CastError`, 404));
+  }
+  });
+
+
 
 export const speakerPostEvents = catchAsyncErrors(async (req, res, next) => {
   // const user=req.user

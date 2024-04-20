@@ -27,16 +27,13 @@ const RegisterPage = () => {
     // console.log(formData)
   };
   
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const  {data}  = await axios.post(
+      const { data } = await axios.post(
         `${Base_url}/user/register`,
-        formData, 
+        formData,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
           withCredentials: true,
         }
       );
@@ -44,15 +41,15 @@ const RegisterPage = () => {
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());
-        toast.success("User register Successfully");
+        toast.success("User registered successfully");
         navigate("/login");
       }
     } catch (error) {
-       
       console.log(error);
+      // Handle error
     }
-    console.log(formData);
   };
+  
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
     const { name, value } = e.target;

@@ -46,7 +46,8 @@ export default function Navbar() {
       { name: 'user', href: '/ad-user', current: false },
       { name: 'Speaker', href: '/ad-speaker', current: false },
       { name: 'Organization', href: '/ad-org', current: false },
-      { name: 'Help', href: '/find-expert', current: false },
+      { name: 'Help', href: '/help', current: false },
+      { name: 'Recomended Speaker', href: '/recom', current: false },
       // { name: 'Register as an Expert', href: '/register', current: false },
     ]
     const handleLogout = async () => {
@@ -96,9 +97,9 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {user && user.role==='Organization' ? orgNavigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-[1rem] font-medium'
@@ -106,11 +107,11 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     )):user && user.isAdmin===true ? adminNavigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-[1rem] font-medium'
@@ -118,11 +119,11 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     )): user && user.role ==='Speaker ' ?speakerNavigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-[1rem] font-medium'
@@ -130,11 +131,11 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     )):navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-black-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-[1rem] font-medium'
@@ -142,7 +143,7 @@ export default function Navbar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -204,21 +205,21 @@ export default function Navbar() {
                         )}
                       </Menu.Item><Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="/s-verify"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Get Verified
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item><Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            to="/s-event"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             My Events
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item></>: user && user.role==='Organization' ? <><Menu.Item>
                         {({ active }) => (
@@ -231,12 +232,12 @@ export default function Navbar() {
                         )}
                       </Menu.Item><Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href="/org-verify"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Get Verified
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item><Menu.Item>
                         {({ active }) => (
