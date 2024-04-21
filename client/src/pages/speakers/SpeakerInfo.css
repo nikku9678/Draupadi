@@ -1,0 +1,42 @@
+.s-info {
+    display: flex;
+    width: 70%;
+    height: 100vh;
+    margin: 20px auto;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    /* align-items: center; */
+    gap: 15px;
+    border-radius: 10px;
+    border: 2px solid red;
+  }
+  .s-info-left {
+    border: 2px solid green;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 20px 40px;
+    gap: 15px;
+  }
+  .s-basic-info h1{
+    margin: 15px 0;
+    font-size: 1.5rem;
+    padding: 0 20px;
+    font-weight: 600;
+  }
+  .s-basic-info{
+    /* border: 2px solid green; */
+  width: 75%;
+  }
+  .s-detail{
+    padding: 0 10px;
+  }
+  .s-detail ul{
+    font-size: large;
+  }
+  .s-detail li{
+    margin: 8px 10px;
+  }
+ 

@@ -57,11 +57,17 @@ const userSchema = new mongoose.Schema({
   experience: {
     type: Number,
   },
+  postalCode: {
+    type: Number,
+  },
   review: {
     type: String,
   },
   rating: {
     type: Number,
+  },
+  dob: {
+    type: String,
   },
   image: {
     public_id: {

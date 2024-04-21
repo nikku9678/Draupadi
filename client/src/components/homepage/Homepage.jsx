@@ -5,7 +5,7 @@ const Homepage = () => {
   return (
     <>
       <div className="home-cont1">
-        <img src="images/homepage/homepage-slider.png" alt="" />
+        <img src="images/homepage/homepage-slider1.jpg" alt="" />
       </div>
       {/* session 1 */}
       <div className="home-session">

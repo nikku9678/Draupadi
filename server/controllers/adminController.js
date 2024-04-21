@@ -13,6 +13,24 @@ export const getAllSpeaker = catchAsyncErrors(async (req, res, next) => {
       user,
     });
   });
+export const updateAsVerified = catchAsyncErrors(async (req, res, next) => {
+  const id = req.params.id;
+  console.log("jj")
+  const { verified } =
+    req.body;
+  const speaker = await User.findByIdAndUpdate(id, { ...req.body }, { new: true });
+  if (!speaker) return next(new ErrorHandler("speaker not found", 404));
+  await speaker.save();
+
+  res.status(200).json({
+    success: true,
+    message: "speaker Updated!",
+  });
+
+  next(error);
+  });
+
+
 export const getAllHelpMessage = catchAsyncErrors(async (req, res, next) => {
     const msg = await Help.find({})
     
