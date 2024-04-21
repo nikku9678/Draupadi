@@ -1,57 +1,33 @@
 import { catchAsyncErrors } from "../middlewares/catchAsyncError.js";
 import ErrorHandler from "../middlewares/error.js";
 import { Organizer } from "../models/organizerSchema.js";
+import { RequestEvent } from "../models/requestEventModel.js";
 
 export const postRequestToSpeaker = catchAsyncErrors(async (req, res, next) => {
-  const { role } = req.user;
-  if (role === "Speaker") {
-    return next(
-      new ErrorHandler("Employer not allowed to access this resource.", 400)
-    );
-  }
-
-
-  const { name, email, desc, phone, address, time, eventId } = req.body;
-  const organizerID = {
-    user: req.user._id,
-    role: "Organization",
-  };
-  if (!eventId) {
-    return next(new ErrorHandler("Job not found!", 404));
-  }
-  const eventDetails = await Job.findById(eventId);
-  if (!eventDetails) {
-    return next(new ErrorHandler("Job not found!", 404));
-  }
-
-  const speakerID = {
-    user: eventDetails.user,
-    role: "Speaker",
-  };
+  const {
+    name,
+    message, 
+    time,
+  } = req.body;
   if (
     !name ||
-    !email ||
-    !desc ||
-    !phone ||
-    !address ||
-    !organizerID ||
-    !speakerID 
+    !message ||
+    !time 
   ) {
-    return next(new ErrorHandler("Please fill all fields.", 400));
+    return next(new ErrorHandler("Please Fill Full Form!", 400));
   }
-  const eventRequest = await Organizer.create({
+  
+  const orgId = req.user._id;
+  const eventRequest = await RequestEvent.create({
     name,
-    email,
-    desc,
-    phone,
-    address,
-    organizerID,
-    speakerID,
-   
+    message,
+    time,
+    orgId,
+    spkId,
   });
   res.status(200).json({
     success: true,
-    message: "Application Submitted!",
     eventRequest,
+    message: "Appointment Send!",
   });
 });
