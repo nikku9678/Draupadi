@@ -13,6 +13,23 @@ export const getAllSpeaker = catchAsyncErrors(async (req, res, next) => {
       user,
     });
   });
+
+  export const deleteSpeaker = catchAsyncErrors(async (req, res, next) => {
+    try {
+      const { id } = req.params;
+  
+      const result = await User.findByIdAndDelete(id);
+  
+      if (!result) {
+        return res.status(404).json({ message: 'Speaker not found' });
+      }
+  
+      return res.status(200).send({ message: 'Speaker deleted successfully' });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send({ message: error.message });
+    }
+  });
 export const updateAsVerified = catchAsyncErrors(async (req, res, next) => {
   const id = req.params.id;
   console.log("jj")

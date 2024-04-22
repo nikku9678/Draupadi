@@ -26,6 +26,8 @@ import Message from "./pages/admin/Message";
 import RecomendedSpkForm from "./pages/message/RecomendedSpkForm";
 import HelpMessage from "./pages/message/HelpMessage";
 import RecomendedSpk  from "./pages/admin/RecomendedSpk";
+import FindExpert from "./pages/find-expert/FindExpert";
+import SpeakerProfile from "./pages/speakers/SpeakerProfile";
 const App = () => {
   return (
     <BrowserRouter>
@@ -44,6 +46,8 @@ const App = () => {
         <Route path="/events" element={<Event />} />
         <Route path="/find-speaker" element={<SpeakerList />} />
         <Route path="/organization" element={<Organization />} />
+        <Route path="/find-expert" element={<FindExpert />} />
+        <Route path="/spk-profile/:id" element={<SpeakerProfile />} />
 
 
         <Route path="/s-verify" element={<SpeakerVerification />} />

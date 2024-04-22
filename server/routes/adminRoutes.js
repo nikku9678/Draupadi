@@ -1,6 +1,6 @@
 import express from 'express';
 
-import {getAdminProfile,getAllSpeaker,getAllUser,getVerifiedSpeaker,getAllOrganization,getAllHelpMessage} from '../controllers/adminController.js';
+import {getAdminProfile,getAllSpeaker,getAllUser,getVerifiedSpeaker,getAllOrganization,getAllHelpMessage, deleteSpeaker} from '../controllers/adminController.js';
 import { isAuthenticate } from '../middlewares/auth.js';
 import { getRecomendedSpk } from '../controllers/recomendedSpkController.js';
 
@@ -14,5 +14,6 @@ router.get("/all-user",isAuthenticate, getAllUser);
 router.get("/all-org",isAuthenticate, getAllOrganization);
 router.get("/all-msg",isAuthenticate, getAllHelpMessage);
 router.get("/get-recomended-spk",isAuthenticate,getRecomendedSpk);
+router.delete("/spk/del/:id",deleteSpeaker);
 
 export default router;
