@@ -43,7 +43,7 @@ const SpeakerInfo = () => {
               <li>Name: {user.name}</li>
               <li>Email: {user.email}</li>
               <li>Phone no: {user.phone}</li>
-              <li>Bio : {user.bio}</li>
+              <li>Bio : {user.bio} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas assumenda perferendis voluptatum eaque nesciunt ipsam sequi exercitationem. Modi pariatur necessitatibus harum voluptas? Ratione officia, error illo suscipit tempore quae velit?</li>
               <li>Company :{user.company}</li>
               <li>Industry: {user.industry}</li>
               <li>Experties: {user.experties}</li>

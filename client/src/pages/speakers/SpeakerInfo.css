@@ -1,34 +1,88 @@
 .s-info {
     display: flex;
-    width: 70%;
-    height: 100vh;
+    width: 75%;
+    /* height: 100vh; */
     margin: 20px auto;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-around;
     /* align-items: center; */
     gap: 15px;
+    background-color: white;
     border-radius: 10px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    border-radius: 10px;
   }
   .s-info-left {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: 30%;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    padding: 20px 40px;
+    padding: 20px 0 0 20px;
     gap: 15px;
   }
-  .s-basic-info h1{
-    margin: 15px 0;
+  .s-info-left .img {
+    /* border: 2px solid green; */
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFECEC;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+  }
+  .s-info-left h2 {
     font-size: 1.5rem;
-    padding: 0 20px;
     font-weight: 600;
   }
+  .s-info-left .spk-info {
+
+    /* border: 2px solid black ; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #FFECEC;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .s-info-left .spk-info ul {
+    padding: 20px;
+    /* border: 2px solid black ; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
   .s-basic-info{
     /* border: 2px solid green; */
-  width: 75%;
+    width: 70%;
+    padding: 20px;
+  }
+  .s-basic-info div{
+    background-color: #FFECEC;
+    /* border: 2px solid green; */
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+ 
+  }
+  .s-basic-info .bio{
+    padding: 15px;
+    
+    /* border: 2px solid green; */
+  }
+  .s-basic-info .bio label{
+    display: block;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  .s-basic-info .bio p{
+    font-size: 1.1rem;
   }
   .s-detail{
     padding: 0 10px;
@@ -40,3 +94,95 @@
     margin: 8px 10px;
   }
  
+
+@media only screen and (max-width:900px){
+  .s-info{
+    width: 90%;
+  }
+}
+@media only screen and (max-width:767px){
+  .s-info{
+    width: 90%;
+    flex-direction: column;
+  }
+  .s-info-left {
+    /* border: 2px solid green; */
+    width: 100%;
+    flex-direction: column;
+   
+    padding: 20px 20px 0;
+    gap: 15px;
+  }
+  .s-info-left .img {
+    /* border: 2px solid green; */
+    display: flex;
+    width: 100%;
+    padding: 20px 10px;
+    background-color: #FFECEC;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+  }
+  .s-info-left h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .s-info-left .spk-info {
+
+    /* border: 2px solid black ; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #FFECEC;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .s-info-left .spk-info ul {
+    padding: 20px;
+    /* border: 2px solid black ; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .s-basic-info{
+    /* border: 2px solid green; */
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .s-basic-info div{
+    background-color: #FFECEC;
+    /* border: 2px solid green; */
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+ 
+  }
+  .s-basic-info .bio{
+    padding: 15px;
+    
+    /* border: 2px solid green; */
+  }
+  .s-basic-info .bio label{
+    display: block;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+  .s-basic-info .bio p{
+    font-size: 1.1rem;
+  }
+  .s-detail{
+    padding: 0 10px;
+  }
+  .s-detail ul{
+    font-size: large;
+  }
+  .s-detail li{
+    margin: 8px 10px;
+  }
+ 
+}

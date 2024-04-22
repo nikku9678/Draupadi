@@ -90,7 +90,7 @@ export const speakerPostEvents = catchAsyncErrors(async (req, res, next) => {
 export const postSpeakerInfo = catchAsyncErrors(async (req, res, next) => {
   // const user=req.user
 
-  const {name, email, phone,experties,bio, qualification, country,city,industry,address,postalCode,dob,image,state,experience,company} =req.body
+  const {name, email, phone,experties,bio, qualification, country,city,industry,address,postalCode,dob,image,state,experience,company } =req.body
   if (!name || !email || !phone ||!experties || !bio || !qualification ||!country || !city || !address ||!postalCode || !dob||!image ||!industry || !experience || !state || !company ) {
     return res.status(400).send({
       error: "Fill all fileds",
