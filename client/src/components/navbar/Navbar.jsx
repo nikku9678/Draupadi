@@ -188,7 +188,7 @@ export default function Navbar() {
                         user && user.role==="user" ? <><Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/user-profile"
+                            to={`/user/profile`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
@@ -197,7 +197,7 @@ export default function Navbar() {
                       </Menu.Item></>: user && user.role==='Speaker' ? <><Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/speaker-profile"
+                            to={`/speaker/info/${user._id}`}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile

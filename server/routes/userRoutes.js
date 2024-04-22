@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getUserProfile, login, register,logout} from '../controllers/userController.js';
+import { getUserProfile, login, register,logout, getUserById} from '../controllers/userController.js';
 import { isAuthenticate } from '../middlewares/auth.js';
 import { getVerifiedSpeaker, updateSpeakerInfo,speakerPostEvents ,getSpeakerPost} from '../controllers/speakerController.js';
 import { updateAsVerified } from '../controllers/adminController.js';
@@ -14,6 +14,7 @@ router.get("/logout",logout);
 router.post("/register",register);
 router.get("/profile",isAuthenticate,getUserProfile);
 router.get("/verified-speaker",getVerifiedSpeaker);
+router.get("/profile/:id",isAuthenticate,getUserById);
 
 
 router.put("/update/:id",isAuthenticate,updateSpeakerInfo);
