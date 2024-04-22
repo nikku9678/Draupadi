@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 const SpeakerDash = () => {
   const [speakerList, setSpeakerList] = useState([]);
   const navigate = useNavigate(); // Initialize useNavigate
-
+ 
   useEffect(() => {
     axios
       .get(`${Base_url}/admin/all-speaker`, {
@@ -66,6 +66,25 @@ const SpeakerDash = () => {
       toast.error("Failed to verify speaker");
     }
   };
+  const notHandleVerified = async (id) => {
+    try {
+      const { data } = await axios.put(
+        `${Base_url}/user/update/verify/${id}`,
+        { verified: false },
+        {
+          withCredentials: true,
+        }
+      );
+      console.log("Verification status updated successfully:", data);
+      toast.success("Speaker verified successfully");
+    
+      // Refresh the page
+      window.location.reload();
+    } catch (error) {
+      console.log("Error updating verification status:", error);
+      toast.error("Failed to verify speaker");
+    }
+  };
 
   return (
     <div className='table-data'>
@@ -91,9 +110,10 @@ const SpeakerDash = () => {
                   <td>{user.phone}</td>
                   <td>{user.verified ? 'Success' : 'Pending'}</td>
                   <td>
-                    {!user.verified && (
-                      <button onClick={() => handleVerified(user._id)}>Verify</button>
-                    )}
+                      {user.verified ? <><button style={{backgroundColor:user.verified?'red':'green'}} className='verify-btn' onClick={() => notHandleVerified(user._id)}>Not verified</button></>:<><button style={{backgroundColor:user.verified?'red':'green'}} className='verify-btn' onClick={() => handleVerified(user._id)}>Verify</button></>}
+                      
+                      
+                
                   </td>
                   <td>
                     <Link to={`/speaker/info/${user._id}`}>
@@ -101,7 +121,7 @@ const SpeakerDash = () => {
                     </Link>
                   </td>
                   <td>
-                    <button onClick={() => handleDelete(user._id)}>Delete</button>
+                    <button onClick={() => handleDelete(user._id)}><i class="fa-solid fa-trash"></i></button>
                   </td>
                 </tr>
               ))}

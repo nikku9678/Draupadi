@@ -28,6 +28,7 @@ import HelpMessage from "./pages/message/HelpMessage";
 import RecomendedSpk  from "./pages/admin/RecomendedSpk";
 import FindExpert from "./pages/find-expert/FindExpert";
 import SpeakerProfile from "./pages/speakers/SpeakerProfile";
+import UserProfile from "./pages/user/UserProfile";
 const App = () => {
   return (
     <BrowserRouter>
@@ -48,6 +49,7 @@ const App = () => {
         <Route path="/organization" element={<Organization />} />
         <Route path="/find-expert" element={<FindExpert />} />
         <Route path="/spk-profile/:id" element={<SpeakerProfile />} />
+        <Route path="/user/profile" element={<UserProfile />} />
 
 
         <Route path="/s-verify" element={<SpeakerVerification />} />

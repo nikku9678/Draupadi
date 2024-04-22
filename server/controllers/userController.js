@@ -87,6 +87,22 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+export const getUserById = catchAsyncErrors(async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return next(new ErrorHandler("Job not found.", 404));
+    }
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    return next(new ErrorHandler(`Invalid ID / CastError`, 404));
+  }
+  });
+
 
 
 
